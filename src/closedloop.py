@@ -20,10 +20,12 @@ class ClosedLoop:
         ## Proportional gain value
         self.Gain_Vector = Gain_Vector
         self.Reference_Vector = init_Reference_Vector
+        self.position = []
+        self.time = []
         
     
         
-    def update(self, Reference_Vector, Measured_Vector):
+    def update(self, Reference_Vector, Measured_Vector, Time):
         ''' @brief                           Updates the error value of the proportional controller
             @details                         Updates and calculates the error value of the 
                                              proportional controller based on the inputs of the 
@@ -45,8 +47,19 @@ class ClosedLoop:
             self.duty = self.max_lim
         elif self.duty <= self.min_lim:
             self.duty = self.min_lim 
+            
+        self.positon.append(self.Measured_Vector)
+        self.time.append(Time)
         
         return self.duty
+    
+    def print_lists(self):
+        self.Length = len(self.time)
+        for i in range(self.Length):
+            print('{:},{:}'.format(self.time[i],self.position[i]))
+            
+        
+        
    
     def get_Kp(self):
         ''' @brief      Returns the proportional gain     
@@ -60,6 +73,7 @@ class ClosedLoop:
         ''' @brief               Sets the value of the proportional gain
             @param Gain_Vector   The proportional gains of the closed-loop controller.
         '''
+        
         
         self.Gain_Vector = Gain_Vector
         
