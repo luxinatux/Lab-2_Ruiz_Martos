@@ -4,13 +4,13 @@
     @details        Implements a closed loop P-Only controller for any system.
 """
 
-class TP_ClosedLoop:
+class ClosedLoop:
     ''' @brief      Closed loop feedback control class              
         @details    Objects of this class can be used to apply closed
                     closed loop feedback control to the velocity of the
                     motors
     '''
-    def __init__(self, Gain_Vector):
+    def __init__(self, Gain_Vector, init_Reference_Vector):
         ''' @brief                  Initializes and returns a Closed_Loop object          
             @details                The controller driver implements a P_only closed loop 
                                     controller and creates mutable gain values.
@@ -19,35 +19,28 @@ class TP_ClosedLoop:
         '''
         ## Proportional gain value
         self.Gain_Vector = Gain_Vector
+        self.Reference_Vector = init_Reference_Vector
+        
     
         
     def update(self, Reference_Vector, Measured_Vector):
-        ''' @brief                      Updates the error value of the proportional controller
-            @details                    Updates and calculates the error value of the 
-                                        proportional controller based on the inputs of the 
-                                        measured and reference values.
-            @param Reference_Vector     Reference input values based on desired values.
-            @param Measured_Vector      Inputs of measured data from the system, which is used to calculate the error.
-        
+        ''' @brief                           Updates the error value of the proportional controller
+            @details                         Updates and calculates the error value of the 
+                                             proportional controller based on the inputs of the 
+                                             measured and reference values.
+            @param      Reference_Vector     Reference input values based on desired values.
+            @param      Measured_Vector      Inputs of measured data from the system, which is used to calculate the error.
+            @return     
         '''
-        self.actuation = 0
         self.max_lim = 100
         self.min_lim = -100
-        self.r = 2.21
-        self.k_t = 13.8
-        self.V_DC = 12
         self.Reference_Vector =  Reference_Vector 
-        self.Measured_Vector =  Measured_Vector 
+        self.Measured_Vector =   Measured_Vector 
         
         
-        for self.idx in range(4):
-            self.actuation += self.Gain_Vector[self.idx]*(self.Reference_Vector[self.idx]-self.Measured_Vector[self.idx])
-#            self.actuation_2 =  self.a + self.actuation
-#            self.a = self.actuation
-        
-        self.duty = ((100*self.r)/(4*self.k_t*self.V_DC))*self.actuation
-        
-        
+        self.duty = self.Gain_Vector*(self.Reference_Vector-self.Measured_Vector)
+
+
         if self.duty >= self.max_lim:
             self.duty = self.max_lim
         elif self.duty <= self.min_lim:
