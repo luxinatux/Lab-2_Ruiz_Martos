@@ -48,7 +48,7 @@ class ClosedLoop:
         elif self.duty <= self.min_lim:
             self.duty = self.min_lim 
             
-        self.positon.append(self.Measured_Vector)
+        self.position.append(self.Measured_Vector)
         self.time.append(Time)
         
         return self.duty
