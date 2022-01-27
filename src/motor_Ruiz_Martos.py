@@ -11,7 +11,7 @@
 import pyb
 import time
 
-class TP_Motor:
+class Motor:
     ''' @brief      A motor class for one channel of the DRV8847
         @details    Objects of this class can be used to apply PWM to a
                     given DC motor
@@ -92,8 +92,8 @@ if __name__ == '__main__':
     in3 = pyb.Pin(pyb.Pin.cpu.A0)
     in4 = pyb.Pin(pyb.Pin.cpu.A1)
     
-    motor1 = TP_Motor(enableA,in1,in2,3) # motor in A
-    motor2 = TP_Motor(enableB,in3,in4,5) #motor in B
+    motor1 = Motor(enableA,in1,in2,3) # motor in A
+    motor2 = Motor(enableB,in3,in4,5) #motor in B
     motor1.enable()
     motor2.enable()
     motor1.set_duty(-50)
