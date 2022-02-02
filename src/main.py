@@ -13,7 +13,7 @@ import time
 import pyb
 
 
-def main():
+def main(Gain):
         enableA = pyb.Pin(pyb.Pin.cpu.A10, pyb.Pin.OUT_PP)
         in1_mot = pyb.Pin(pyb.Pin.cpu.B4)
         in2_mot = pyb.Pin(pyb.Pin.cpu.B5)
@@ -22,7 +22,7 @@ def main():
         in1_enc = pyb.Pin(pyb.Pin.cpu.B6)
         in2_enc = pyb.Pin(pyb.Pin.cpu.B7)
         encoder1 = encoder_Ruiz_Martos.Encoder(in1_enc,in2_enc,4) # motor in A
-        Closed_loop = closedloop.ClosedLoop(.5, 0)
+        Closed_loop = closedloop.ClosedLoop(Gain, 0)
         time_start = time.ticks_ms()
         time_period = 10
         step = 4000
@@ -40,8 +40,11 @@ def main():
                
                 
 if __name__ == '__main__':
-    main()
-
+    while True:
+        Gain = input('Enter a Gain Value:')
+        main(Gain)
+        
+    
         
 
 
