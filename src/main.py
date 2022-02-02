@@ -42,6 +42,17 @@ def main(Gain):
 if __name__ == '__main__':
     while True:
         Gain = input('Enter a Gain Value:')
+        try:
+            idx = float(Gain)
+            # Checks if input is an integer
+        except:
+            print('ENTER A Number!')
+            # If input is not an integer, prompts user to enter a positive integer
+            continue
+            # Returns program back to the beginning of while loop
+        else:
+            pass
+        # If input is an integer, program continues to check if it is a negative number
         main(Gain)
         
     
