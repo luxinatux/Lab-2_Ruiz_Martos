@@ -13,6 +13,8 @@ import time
 import pyb
 
 
+
+
 def main(Gain):
         enableA = pyb.Pin(pyb.Pin.cpu.A10, pyb.Pin.OUT_PP)
         in1_mot = pyb.Pin(pyb.Pin.cpu.B4)
