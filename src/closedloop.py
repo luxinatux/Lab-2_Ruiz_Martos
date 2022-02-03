@@ -2,6 +2,8 @@
     @file           TP_closedloop.py
     @brief          Driver class implementing a closed loop controller.
     @details        Implements a closed loop P-Only controller for any system.
+    @author         Dylan Ruiz
+    @author         Lucas Martos-Repath
 """
 
 class ClosedLoop:
@@ -15,7 +17,7 @@ class ClosedLoop:
             @details                The controller driver implements a P_only closed loop 
                                     controller and creates mutable gain values.
             @param Gain_Vector      The proportional gains of the closed-loop controller. 
-                        
+            @param init_Reference_Vector The selected reference value based on desired value            
         '''
         ## Proportional gain value
         self.Gain_Vector = Gain_Vector

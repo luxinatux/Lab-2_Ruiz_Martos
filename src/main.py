@@ -5,7 +5,13 @@ Created on Thu Jan 27 13:41:08 2022
 
 @author: dylanruiz
 """
-
+"""
+    @file           TP_closedloop.py
+    @brief          Driver class implementing a closed loop controller.
+    @details        Implements a closed loop P-Only controller for any system.
+    @author         Dylan Ruiz
+    @author         Lucas Martos-Repath
+"""
 import motor_Ruiz_Martos
 import encoder_Ruiz_Martos
 import closedloop
@@ -17,6 +23,12 @@ import struct
 
 
 def main(Gain):
+        ''' @brief                  Initializes and returns a Closed_Loop object          
+            @details                The controller driver implements a P_only closed loop 
+                                controller and creates mutable gain values.
+            @param Gain_Vector      The proportional gains of the closed-loop controller. 
+                    
+        '''
         enableA = pyb.Pin(pyb.Pin.cpu.A10, pyb.Pin.OUT_PP)
         in1_mot = pyb.Pin(pyb.Pin.cpu.B4)
         in2_mot = pyb.Pin(pyb.Pin.cpu.B5)
@@ -63,7 +75,6 @@ if __name__ == '__main__':
         break
         
         
-        """TRYING TO get serial port stuff working"""
         
 
 

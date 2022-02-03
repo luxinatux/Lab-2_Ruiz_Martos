@@ -1,9 +1,21 @@
+"""
+    @file           TP_closedloop.py
+    @brief          Driver class implementing a closed loop controller.
+    @details        Implements a closed loop P-Only controller for any system.
+    @author         Dylan Ruiz
+    @author         Lucas Martos-Repath
+"""
 import serial
 import time
 import struct
 from matplotlib import pyplot as plt
 
 def plot():
+    ''' @brief                  Initializes and returns a Closed_Loop object          
+        @details                The controller driver implements a P_only closed loop 
+                                controller and creates mutable gain values.
+                            
+    '''
     with serial.Serial('COM3', 115200) as s_port:
         joe = ''
         s_port.write(b'\x03') #runs the main function
