@@ -1,9 +1,7 @@
 import serial
 import time
 import struct
-
-
-#from matplotlib import pyplot as plt
+from matplotlib import pyplot as plt
 
 def plot():
     with serial.Serial('COM3', 115200) as s_port:
@@ -41,6 +39,51 @@ def plot():
         #bytearray('hi', 'utf8')
         #bytearray('hi\r', 'utf8')
     s_port.close()
+    x_list = []
+    y_list = []
+    state = 0
+    for i in mixed_output:
+
+        if state == 0:
+            try: 
+                pos_1 = float(mixed_output[i])
+            except ValueError:
+                Fault_1 = False
+                pass
+            else: 
+                Fault_1 = True
+            state = 1
+            if Fault_1 == True:
+                pos_fin = pos_1
+            continue
+                
+        if state == 1:
+            try: 
+                tim_1 = float(mixed_output[i])
+            except ValueError:
+                Fault_2 = False
+                pass
+            else: 
+                Fault_2 = True
+            state = 0
+            
+            if Fault_2 == True and Fault_1 == True:
+                tim_fin = tim_1
+                x_list.append(tim_fin)
+                y_list.append(pos_fin)
+        
+                
+                
+    #print(x_list)
+    #print(y_list)
+
+    #https://matplotlib.org/stable/tutorials/introductory/pyplot.html
+
+
+
+    plt.plot(x_list,y_list)
+    plt.xlabel("Time[ms]")
+    plt.ylabel("Position[ticks]")
 
 if __name__ == '__main__':
     plot()
