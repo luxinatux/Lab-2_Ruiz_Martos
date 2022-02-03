@@ -1,7 +1,7 @@
 var NAVTREEINDEX0 =
 {
-"_plot_8py.html":[1,0,0,0,0,3],
-"_plot_8py.html#a219ccb5b57f7199ee4bd618306a03275":[1,0,0,0,0,3,0],
+"_plot_8py.html":[1,0,0,0,0,4],
+"_plot_8py.html#a219ccb5b57f7199ee4bd618306a03275":[1,0,0,0,0,4,0],
 "annotated.html":[0,0],
 "classclosedloop_1_1_closed_loop.html":[0,0,0,0],
 "classclosedloop_1_1_closed_loop.html#a18cc0ff381c7c9005071b962f42ef433":[0,0,0,0,8],
@@ -61,6 +61,7 @@ var NAVTREEINDEX0 =
 "index.html":[],
 "main_8py.html":[1,0,0,0,0,2],
 "main_8py.html#a1485a01c5e4e5c84f7572ab59d3ec3d2":[1,0,0,0,0,2,0],
+"motor___ruiz___martos_8py.html":[1,0,0,0,0,3],
 "pages.html":[],
-"shares_8py.html":[1,0,0,0,0,4]
+"shares_8py.html":[1,0,0,0,0,5]
 };
