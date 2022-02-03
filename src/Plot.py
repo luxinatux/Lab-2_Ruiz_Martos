@@ -32,7 +32,7 @@ def plot():
         #s_port.write(b'L1\r')
         mixed_output = s_port.readline().split(b',')
         print(mixed_output)
-        print(int(mixed_output[2]))
+        final = len(mixed_output)
         
         #s_port.write(b'L1\r') #endline? 
         
@@ -42,11 +42,11 @@ def plot():
     x_list = []
     y_list = []
     state = 0
-    for i in mixed_output:
+    for i in range(final):
 
         if state == 0:
             try: 
-                pos_1 = float(mixed_output[i])
+                pos_1 = int(mixed_output[i])
             except ValueError:
                 Fault_1 = False
                 pass
@@ -59,7 +59,7 @@ def plot():
                 
         if state == 1:
             try: 
-                tim_1 = float(mixed_output[i])
+                tim_1 = int(mixed_output[i])
             except ValueError:
                 Fault_2 = False
                 pass
@@ -84,6 +84,7 @@ def plot():
     plt.plot(x_list,y_list)
     plt.xlabel("Time[ms]")
     plt.ylabel("Position[ticks]")
+    plt.title("Step Response, Kp = 0.15")
 
 if __name__ == '__main__':
     plot()
