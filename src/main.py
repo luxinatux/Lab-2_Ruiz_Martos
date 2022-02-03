@@ -11,6 +11,7 @@ import encoder_Ruiz_Martos
 import closedloop
 import time
 import pyb
+import struct
 
 
 
@@ -44,6 +45,8 @@ def main(Gain):
 if __name__ == '__main__':
     while True:
         Gain = input('Enter a Gain Value:')
+        # gain = bytearray string
+        #ide = struct.unpack('f', Gain)
         try:
             idx = float(Gain)
             # Checks if input is an integer
@@ -56,6 +59,8 @@ if __name__ == '__main__':
             pass
         # If input is an integer, program continues to check if it is a negative number
         main(idx)
+        time.sleep(5)
+        break
         
         
         """TRYING TO get serial port stuff working"""

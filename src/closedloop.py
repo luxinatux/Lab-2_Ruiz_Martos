@@ -55,9 +55,16 @@ class ClosedLoop:
     
     def print_lists(self):
         self.Length = len(self.time)
+        listofstr = []
         for i in range(self.Length):
-            print('{:},{:}'.format(self.time[i],self.position[i]))
-            
+            #print('{:},{:}'.format(self.time[i],self.position[i]))
+            pos = '{:},'.format(self.position[i])
+            tim = '{:},'.format(self.time[i])
+            listofstr.append(pos)
+            listofstr.append(tim)
+    
+        finalstr = "".join(listofstr)
+        print(finalstr)     
         
         
    
