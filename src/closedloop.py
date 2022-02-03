@@ -7,13 +7,15 @@
 """
 
 class ClosedLoop:
-    ''' @brief      Closed loop feedback control class              
+    '''
+        @brief      Closed loop feedback control class              
         @details    Objects of this class can be used to apply closed
                     closed loop feedback control to the velocity of the
                     motors
     '''
     def __init__(self, Gain_Vector, init_Reference_Vector):
-        ''' @brief                  Initializes and returns a Closed_Loop object          
+        '''
+            @brief                  Initializes and returns a Closed_Loop object          
             @details                The controller driver implements a P_only closed loop 
                                     controller and creates mutable gain values.
             @param Gain_Vector      The proportional gains of the closed-loop controller. 
@@ -31,7 +33,8 @@ class ClosedLoop:
     
         
     def update(self, Reference_Vector, Measured_Vector, Time):
-        ''' @brief                           Updates the error value of the proportional controller
+        '''
+            @brief                           Updates the error value of the proportional controller
             @details                         Updates and calculates the error value of the 
                                              proportional controller based on the inputs of the 
                                              measured and reference values.
@@ -60,7 +63,8 @@ class ClosedLoop:
         return self.duty
     
     def print_lists(self):
-        '''@brief                   Prints both time and position arrays into one string.
+        '''
+           @brief                   Prints both time and position arrays into one string.
            @details                 Prints position and time in an alternating sequence to fit both arrays into one string.
         '''
         self.Length = len(self.time)
@@ -78,7 +82,8 @@ class ClosedLoop:
         
    
     def get_Kp(self):
-        ''' @brief      Returns the proportional gain     
+        '''
+            @brief      Returns the proportional gain     
             @return     Returns the proportional gain set using the 
                         set_Kp function
         '''
@@ -86,7 +91,8 @@ class ClosedLoop:
         return self.Gain_Vector
     
     def set_K_Vector(self,Gain_Vector):
-        ''' @brief               Sets the value of the proportional gain
+        '''
+            @brief               Sets the value of the proportional gain
             @param Gain_Vector   The proportional gains of the closed-loop controller.
         '''
         

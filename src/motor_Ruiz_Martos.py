@@ -12,13 +12,15 @@ import pyb
 import time
 
 class Motor:
-    ''' @brief      A motor class for one channel of the DRV8847
+    '''
+        @brief      A motor class for one channel of the DRV8847
         @details    Objects of this class can be used to apply PWM to a
                     given DC motor
     '''
     
     def __init__(self, en_pin, in1pin, in2pin, timer):
-        ''' @brief          Initializes and returns a motor object 
+        '''
+            @brief          Initializes and returns a motor object 
             @details        Sets up pin and timer objects to a motor. 
                             Initialization of pin object must be done in Main. 
                             Initialization of timer occurs in init.
@@ -47,7 +49,8 @@ class Motor:
 # 
        
     def enable(self):
-        ''' @brief      Brings the motor out of sleep mode
+        '''
+            @brief      Brings the motor out of sleep mode
         '''
         ## Sets the sleep pin to high
         self.pinENABLE.high()
@@ -57,7 +60,8 @@ class Motor:
     
     
     def disable(self):
-        ''' @brief       Disables selected motor.
+        '''
+            @brief       Disables selected motor.
         '''
         # self.motor = motor
         self.pinENABLE.low()
@@ -65,7 +69,8 @@ class Motor:
         pass
         
     def set_duty(self, duty):
-        ''' @brief              Sets the PWM duty cylce for the motor channel
+        '''
+            @brief              Sets the PWM duty cylce for the motor channel
             @details            This method sets the duty cycle to be sent to the 
                                 motor to the given level. Positive values cause effort
                                 in one direction, negative values in the opposite

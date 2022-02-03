@@ -11,7 +11,8 @@ import struct
 from matplotlib import pyplot as plt
 
 def plot():
-    ''' @brief                  Runs main.py file on the nucleo and collects data.     
+    '''
+        @brief                  Runs main.py file on the nucleo and collects data.     
         @details                Runs main.py file on the nucleo via serial port and collects time and location(ticks) data from a step response.
                                 When running on a different computer, ensure that the correct com port number is changed.
     '''
@@ -49,7 +50,7 @@ def plot():
         
         #bytearray('hi', 'utf8')
         #bytearray('hi\r', 'utf8')
-    s_port.close()
+    s_port.close() #This made our code the only consistent repeatable output
     x_list = []
     y_list = []
     state = 0

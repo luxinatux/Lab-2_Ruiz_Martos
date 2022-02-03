@@ -15,7 +15,8 @@ import pyb
 
 
 def main(Gain):
-        ''' @brief                  Initializes hardware and runs the step response.        
+        '''
+            @brief                  Initializes hardware and runs the step response.        
             @details                Initializes the encoders and motor, and also creates a motor, encoder and a closed loop object
                                     to run the drivers.
             @param Gain             The proportional gain of the closed-loop controller. 

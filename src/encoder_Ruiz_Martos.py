@@ -11,11 +11,13 @@ import pyb
 import time
 
 class Encoder:
-    ''' @brief                  Interface with quadrature encoders.
+    '''
+        @brief                  Interface with quadrature encoders.
         @details                Defines functions used to interface with the encoder.
     '''
     def __init__(self, chanA, chanB, timer):
-        ''' @brief              Constructs an Encoder object
+        '''
+            @brief              Constructs an Encoder object
             @details            Attaches pins and timers, configures channels
                                 and sets the value of parameters to be used
                                 in encoder functions. Initialization of pin object must
@@ -54,7 +56,8 @@ class Encoder:
         self.stop_1 = 0
         
     def update(self):
-        ''' @brief              Updates encoder position and delta
+        '''
+            @brief              Updates encoder position and delta
             @details            Updated the encoder position and delta, as well
                                 as accounting for overflow
         '''
@@ -74,7 +77,8 @@ class Encoder:
         
         
     def get_position(self):
-        ''' @brief              Returns encoder position
+        '''
+            @brief              Returns encoder position
             @details            Returns the position of the encoder based on
                                 the results of the update() fcn
             @return             The position of the encoder shaft
@@ -83,7 +87,8 @@ class Encoder:
         return self.pos_1
     
     def set_position(self, position):
-        ''' @brief              Sets encoder position
+        '''
+            @brief              Sets encoder position
             @details            Sets the encoder position to the desired
                                 user input
             @param position     Resets the position to the desired
@@ -95,7 +100,8 @@ class Encoder:
         
         
     def get_delta(self):
-        ''' @brief              Returns encoder delta
+        '''
+            @brief              Returns encoder delta
             @details            Returns the change in position of the encoder
                                 based on the results from the update() fcn
             @return             The change in position of the encoder shaft
