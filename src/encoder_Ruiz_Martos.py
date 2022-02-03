@@ -79,7 +79,7 @@ class Encoder:
                                 the results of the update() fcn
             @return             The position of the encoder shaft
         '''
-        print(self.pos_1)
+        
         return self.pos_1
     
     def set_position(self, position):

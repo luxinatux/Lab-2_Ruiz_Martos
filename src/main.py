@@ -53,9 +53,10 @@ if __name__ == '__main__':
         else:
             pass
         # If input is an integer, program continues to check if it is a negative number
-        main(Gain)
+        main(idx)
         
-    
+        
+        """TRYING TO get serial port stuff working"""
         
 
 
