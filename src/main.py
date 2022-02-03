@@ -2,6 +2,7 @@
     @file           main.py
     @brief          Main task file used to perform step response of a motor.
     @details        Implements a closed loop P-Only controlled step response of a motor with a specified gain value and steady state value.
+                    This file is to be put on the Nucleo, and upon restart of the nucleo, it should run this file.
     @author         Dylan Ruiz
     @author         Lucas Martos-Repath
 """
@@ -30,9 +31,11 @@ def main(Gain):
         encoder1 = encoder_Ruiz_Martos.Encoder(in1_enc,in2_enc,4) # motor in A
         Closed_loop = closedloop.ClosedLoop(Gain, 0)
         time_start = time.ticks_ms()
-        time_period = 10
-        step = 4000
+        
+        time_period = 10 #specifying that the interval we want is 10s
+        step = 4000 #Specifying that the desired output is 4000 ticks
         time_next = 0
+        
         while True:
             time_now = time.ticks_diff(time.ticks_ms(),time_start)
             if time_now >= time_next:

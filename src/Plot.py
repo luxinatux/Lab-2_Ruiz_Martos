@@ -12,8 +12,8 @@ from matplotlib import pyplot as plt
 
 def plot():
     ''' @brief                  Runs main.py file on the nucleo and collects data.     
-        @details                Runs main.py file on the nucleo via serial port and collects data from a step response.
-                            
+        @details                Runs main.py file on the nucleo via serial port and collects time and location(ticks) data from a step response.
+                                When running on a different computer, ensure that the correct com port number is changed.
     '''
     with serial.Serial('COM3', 115200) as s_port:
         joe = ''
@@ -21,9 +21,9 @@ def plot():
         time.sleep(1)
         s_port.write(b'\x04') #runs the main function
         time.sleep(1)
-        #print (s_port.readline().split (b','))
+        
         Gain = input('Enter a Gain Value:')
-        #Gain = 0.5
+        
         try:
             idx = float(Gain)
             # Checks if input is an integer
@@ -91,11 +91,11 @@ def plot():
     #https://matplotlib.org/stable/tutorials/introductory/pyplot.html
 
 
-
+    #plotting of the data commences here
     plt.plot(x_list,y_list)
     plt.xlabel("Time[ms]")
     plt.ylabel("Position[ticks]")
-    plt.title("Step Response, Kp = 0.15")
+    plt.title("Step Response, Kp = 0.15") #title is changed for various plots
 
 if __name__ == '__main__':
     plot()

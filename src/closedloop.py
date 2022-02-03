@@ -1,5 +1,5 @@
 """
-    @file           TP_closedloop.py
+    @file           closedloop.py
     @brief          Driver class implementing a closed loop controller.
     @details        Implements a closed loop P-Only controller for any system.
     @author         Dylan Ruiz
@@ -60,7 +60,7 @@ class ClosedLoop:
         return self.duty
     
     def print_lists(self):
-        '''@brief                   Prints both time and position arrays intto one string.
+        '''@brief                   Prints both time and position arrays into one string.
            @details                 Prints position and time in an alternating sequence to fit both arrays into one string.
         '''
         self.Length = len(self.time)
