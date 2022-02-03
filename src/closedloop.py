@@ -21,8 +21,11 @@ class ClosedLoop:
         '''
         ## Proportional gain value
         self.Gain_Vector = Gain_Vector
+        ## Steady State Desired Value
         self.Reference_Vector = init_Reference_Vector
+        ## Empty position array
         self.position = []
+        ## Empty time array
         self.time = []
         
     
@@ -34,7 +37,8 @@ class ClosedLoop:
                                              measured and reference values.
             @param      Reference_Vector     Reference input values based on desired values.
             @param      Measured_Vector      Inputs of measured data from the system, which is used to calculate the error.
-            @return     
+            @param      Time                 Time input used to create a list adjacent to the position list.
+            @return     duty                 The duty cycle calculated by the P-Only controller     
         '''
         self.max_lim = 100
         self.min_lim = -100
@@ -56,6 +60,9 @@ class ClosedLoop:
         return self.duty
     
     def print_lists(self):
+        '''@brief                   Prints both time and position arrays intto one string.
+           @details                 Prints position and time in an alternating sequence to fit both arrays into one string.
+        '''
         self.Length = len(self.time)
         listofstr = []
         for i in range(self.Length):

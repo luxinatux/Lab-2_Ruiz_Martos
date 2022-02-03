@@ -1,14 +1,7 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """
-Created on Thu Jan 27 13:41:08 2022
-
-@author: dylanruiz
-"""
-"""
-    @file           TP_closedloop.py
-    @brief          Driver class implementing a closed loop controller.
-    @details        Implements a closed loop P-Only controller for any system.
+    @file           main.py
+    @brief          Main task file used to perform step response of a motor.
+    @details        Implements a closed loop P-Only controlled step response of a motor with a specified gain value and steady state value.
     @author         Dylan Ruiz
     @author         Lucas Martos-Repath
 """
@@ -17,16 +10,14 @@ import encoder_Ruiz_Martos
 import closedloop
 import time
 import pyb
-import struct
-
 
 
 
 def main(Gain):
-        ''' @brief                  Initializes and returns a Closed_Loop object          
-            @details                The controller driver implements a P_only closed loop 
-                                controller and creates mutable gain values.
-            @param Gain_Vector      The proportional gains of the closed-loop controller. 
+        ''' @brief                  Initializes hardware and runs the step response.        
+            @details                Initializes the encoders and motor, and also creates a motor, encoder and a closed loop object
+                                    to run the drivers.
+            @param Gain             The proportional gain of the closed-loop controller. 
                     
         '''
         enableA = pyb.Pin(pyb.Pin.cpu.A10, pyb.Pin.OUT_PP)
@@ -57,8 +48,6 @@ def main(Gain):
 if __name__ == '__main__':
     while True:
         Gain = input('Enter a Gain Value:')
-        # gain = bytearray string
-        #ide = struct.unpack('f', Gain)
         try:
             idx = float(Gain)
             # Checks if input is an integer

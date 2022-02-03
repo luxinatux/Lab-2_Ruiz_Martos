@@ -1,7 +1,7 @@
 """
-    @file           TP_closedloop.py
-    @brief          Driver class implementing a closed loop controller.
-    @details        Implements a closed loop P-Only controller for any system.
+    @file           Plot.py
+    @brief          Data Acquisition file  
+    @details        Communicates to the nucleo via serial port to collect step response data and plot it
     @author         Dylan Ruiz
     @author         Lucas Martos-Repath
 """
@@ -11,9 +11,8 @@ import struct
 from matplotlib import pyplot as plt
 
 def plot():
-    ''' @brief                  Initializes and returns a Closed_Loop object          
-        @details                The controller driver implements a P_only closed loop 
-                                controller and creates mutable gain values.
+    ''' @brief                  Runs main.py file on the nucleo and collects data.     
+        @details                Runs main.py file on the nucleo via serial port and collects data from a step response.
                             
     '''
     with serial.Serial('COM3', 115200) as s_port:
