@@ -25,13 +25,6 @@
 var NAVTREE =
 [
   [ "Lab 2: Step Response Test with Closed Loop Controller", "index.html", [
-    [ "Namespaces", "namespaces.html", [
-      [ "Namespace List", "namespaces.html", "namespaces_dup" ],
-      [ "Namespace Members", "namespacemembers.html", [
-        [ "All", "namespacemembers.html", null ],
-        [ "Functions", "namespacemembers_func.html", null ]
-      ] ]
-    ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
@@ -40,13 +33,16 @@ var NAVTREE =
         [ "Functions", "functions_func.html", null ],
         [ "Variables", "functions_vars.html", null ]
       ] ]
+    ] ],
+    [ "Files", "files.html", [
+      [ "File List", "files.html", "files_dup" ]
     ] ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"annotated.html"
+"_plot_8py.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

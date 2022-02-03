@@ -1,4 +1,4 @@
-"""
+"""!
     @file           main.py
     @brief          Main task file used to perform step response of a motor.
     @details        Implements a closed loop P-Only controlled step response of a motor with a specified gain value and steady state value.
@@ -15,7 +15,7 @@ import pyb
 
 
 def main(Gain):
-        '''
+        '''!
             @brief                  Initializes hardware and runs the step response.        
             @details                Initializes the encoders and motor, and also creates a motor, encoder and a closed loop object
                                     to run the drivers.
